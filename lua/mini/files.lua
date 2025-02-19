@@ -2320,7 +2320,7 @@ H.buffer_make_mappings = function(buf_id, mappings)
 	end
 
 	H.read_bookmarks = function()
-		local bookmark_path = vim.fn.stdpath("data") .. "/.minifiles_bookmarks"
+		local bookmark_path = vim.fn.getcwd() .. "/.minifiles_bookmarks"
 		local f = io.open(bookmark_path, "r")
 		if f then
 			local content = f:read("*all")
@@ -2336,7 +2336,7 @@ H.buffer_make_mappings = function(buf_id, mappings)
 
 	-- Function to write bookmarks to file
 	H.write_bookmarks = function(bookmarks)
-		local bookmark_path = vim.fn.stdpath("data") .. "/.minifiles_bookmarks"
+		local bookmark_path = vim.fn.getcwd() .. "/.minifiles_bookmarks"
 		local f = io.open(bookmark_path, "w")
 		if f then
 			f:write(vim.json.encode(bookmarks))
