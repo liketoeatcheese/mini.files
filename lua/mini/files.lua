@@ -1039,6 +1039,7 @@ MiniFiles.reveal_cwd = function()
 		depth_focus = depth_focus + 1
 	end
 
+
 	MiniFiles.set_branch(branch, { depth_focus = depth_focus })
 end
 
@@ -1168,7 +1169,7 @@ MiniFiles.set_branch = function(branch, opts)
 	depth_focus = math.min(math.max(math.floor(depth_focus), 1), max_depth)
 
 	-- Set data and ensure cursors are on child entries
-	explorer.branch, explorer.depth_focus = branch, depth_focus
+    	explorer.branch, explorer.depth_focus = branch, depth_focus
 	for i = 1, #branch - 1 do
 		local parent, child = branch[i], H.fs_get_basename(branch[i + 1])
 		local parent_view = explorer.views[parent] or {}
@@ -1192,11 +1193,12 @@ end
 ---@param opts table|nil Options. Possible fields:
 ---   - <desc> `(string)` - bookmark description (used in help window).
 MiniFiles.set_bookmark = function(id, path, opts)
-	local explorer = H.explorer_get()
-	if explorer == nil then
-		return
-	end
 
+	--[[ local explorer = H.explorer_get() ]]
+	--[[ if explorer == nil then ]]
+	--[[ 	return ]]
+	--[[ end ]]
+	--[[]]
 	if not (type(id) == "string" and id:len() == 1) then
 		H.error("Bookmark id should be single character")
 	end
